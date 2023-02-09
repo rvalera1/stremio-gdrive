@@ -17,8 +17,8 @@ class IMDb:
 
         self.fetch_dest = "IMDB_HTML"
         if not self.get_meta_from_imdb_html():
-            self.fetch_dest = "IMDB_SG_API"
-            if not self.get_meta_from_imdb_sg():
+#            self.fetch_dest = "IMDB_SG_API"
+#            if not self.get_meta_from_imdb_sg():
                 self.fetch_dest = "CINEMETA"
                 if not self.get_meta_from_cinemeta():
                     self.fetch_dest = "NULL"
@@ -82,7 +82,7 @@ class IMDb:
         """Obtain metadata from imdb suggestions api"""
         meta = ut.req_api(self.imdb_sg_url, key="d")
         if meta:
-            self.set_meta(meta[0], year="y", name="l")
+            self.set_meta(meta[0], year="y", title="l")
             return True
         return False
 
